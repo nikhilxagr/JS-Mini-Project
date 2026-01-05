@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Notes App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app">
+
+        <header class="app-header">
+            <div>
+                <div class="app-title">
+                    ✍️ Notes
+                    <div class="badge">Local</div>
+                </div>
+                <div class="note-count" id="noteCount">0 notes</div>
+            </div>
+            <button class="btn-secondary" type="button" id="clearAllBtn">
+                Clear All
+            </button>
+        </header>
+
+
+        <form class="note-form" id="noteForm">
+            <div class="field-group">
+                <div class="field-inline">
+                    <div style="flex: 1;">
+                        <label for="titleInput">Title</label>
+                        <input id="titleInput" type="text" placeholder="Meeting notes, shopping list, ideas..."
+                            required />
+                    </div>
+                </div>
+                <div>
+                    <label for="contentInput">Note</label>
+                    <textarea id="contentInput" placeholder="Write your note here..." required></textarea>
+                </div>
+            </div>
+            <div class="field-group">
+                <label>&nbsp;</label>
+                <button class="btn-primary" type="submit" id="submitBtn">
+                    <span class="icon">＋</span>
+                    <span id="submitText">Add Note</span>
+                </button>
+            </div>
+        </form>
+
+
+        <div class="toolbar">
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Search notes by title or text..." />
+            </div>
+        </div>
+
+
+        <section class="notes-grid" id="notesGrid">
+
+        </section>
+    </div>
+
+
+    <div class="toast" id="toast">
+        <span class="icon" id="toastIcon">✅</span>
+        <span id="toastMessage">Saved</span>
+    </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>
