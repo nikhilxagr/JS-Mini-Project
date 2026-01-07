@@ -1,0 +1,122 @@
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+body {
+  background: linear-gradient(180deg,#0f1724,#0b1220);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  color: #fff;
+}
+
+
+.card {
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(135deg, #0f1724 0%, #13203b 100%);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  text-align: center;
+}
+
+
+.search {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.search input {
+  flex: 1;
+  height: 54px;
+  border-radius: 999px;
+  border: none;
+  padding: 12px 18px;
+  font-size: 16px;
+  background: linear-gradient(180deg,#e9fffb,#d7fff6);
+  color: #0b2530;
+  outline: none;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.search button {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(180deg,#e9fffb,#d7fff6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.search button img { width: 20px; height: 20px; }
+
+.error {
+  background: rgba(255, 60, 60, 0.12);
+  color: #ffb3b3;
+  border-left: 4px solid rgba(255, 60, 60, 0.9);
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-align: left;
+  display: none;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.weather {
+  padding-top: 6px;
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.weather-icon {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  margin: 6px auto 0;
+  display: block;
+}
+
+.temp {
+  font-size: 64px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.city {
+  font-size: 22px;
+  font-weight: 500;
+  color: #cfeff3;
+  margin-top: -6px;
+}
+
+.details {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding: 12px;
+}
+
+.col { display: flex; gap: 12px; align-items: center; text-align: left; }
+.col img { width: 42px; height: 42px; opacity: 0.95; }
+.label { font-size: 13px; color: #a8dcd6; margin-bottom: 2px; }
+.value { font-size: 16px; font-weight: 600; color: #e6fff9; }
+
+
+.attribution {
+  margin-top: 18px;
+  font-size: 12px;
+  color: #8fbfc0;
+}
+.attribution a { color: #bff0e6; text-decoration: none; }
+
+
+@media (max-width: 420px) {
+  .temp { font-size: 48px; }
+  .weather-icon { width: 86px; height: 86px; }
+}
