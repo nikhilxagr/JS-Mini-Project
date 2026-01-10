@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #050816, #251840, #441752, #ff4d6d);
+    background-size: 300% 300%;
+    animation: bgMove 12s ease infinite;
+}
+
+@keyframes bgMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+
+.music-player {
+    width: 100%;
+    max-width: 430px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 24px 24px 28px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    animation: cardIn 0.7s ease forwards;
+}
+
+
+.music-player::before {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(255, 77, 109, 0.5), transparent 70%);
+    top: -40px;
+    right: -60px;
+    z-index: -1;
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.25s ease;
+    backdrop-filter: blur(10px);
+}
+
+.circle i {
+    font-size: 18px;
+}
+
+.circle:hover {
+    transform: scale(1.12) translateY(-2px);
+    background: rgba(255, 255, 255, 0.32);
+}
+
+
+.img-wrapper {
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.song-img {
+    width: 100%;
+    display: block;
+    transform-origin: center;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.music-player h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.music-player p {
+    font-size: 14px;
+    color: #e0d9ff;
+    opacity: 0.8;
+    margin-bottom: 16px;
+}
+
+.time-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #f3f3f3;
+    opacity: 0.85;
+    margin-bottom: 4px;
+}
+
+/* slider */
+#progress {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.25);
+    outline: none;
+    cursor: pointer;
+    margin: 4px 0 18px;
+}
+
+#progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff4d6d;
+    box-shadow: 0 0 12px rgba(255, 77, 109, 0.9);
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+
+#progress::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff4d6d;
+    box-shadow: 0 0 12px rgba(255, 77, 109, 0.9);
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.controls div {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+    transition: 0.25s ease;
+}
+
+.controls div i {
+    font-size: 20px;
+}
+
+.controls div:hover {
+    transform: translateY(-3px) scale(1.1);
+    background: rgba(255, 255, 255, 0.32);
+}
+
+
+#play-btn {
+    width: 78px;
+    height: 78px;
+    box-shadow: 0 0 18px rgba(255, 77, 109, 0.95);
+}
+
+#play-btn i {
+    font-size: 26px;
+}
+
+
+@media (max-width: 480px) {
+    .music-player {
+        padding: 18px 16px 22px;
+        border-radius: 20px;
+    }
+
+    .controls div {
+        width: 52px;
+        height: 52px;
+    }
+
+    #play-btn {
+        width: 70px;
+        height: 70px;
+    }
+
+    .music-player h1 {
+        font-size: 20px;
+    }
+}
