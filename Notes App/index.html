@@ -4,71 +4,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Notes App</title>
+    <title>Notes App</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="app">
-
         <header class="app-header">
             <div>
-                <div class="app-title">
-                    ✍️ Notes
-                    <div class="badge">Local</div>
-                </div>
-                <div class="note-count" id="noteCount">0 notes</div>
+                <div class="app-title">Notes</div>
+                <div class="note-count" id="noteCount">No notes yet</div>
             </div>
-            <button class="btn-secondary" type="button" id="clearAllBtn">
-                Clear All
-            </button>
+            <div class="header-actions">
+                <button class="btn-secondary" type="button" id="themeToggleBtn" aria-pressed="false">Dark Theme</button>
+                <button class="btn-secondary" type="button" id="clearAllBtn">Clear All</button>
+            </div>
         </header>
-
 
         <form class="note-form" id="noteForm">
             <div class="field-group">
-                <div class="field-inline">
-                    <div style="flex: 1;">
-                        <label for="titleInput">Title</label>
-                        <input id="titleInput" type="text" placeholder="Meeting notes, shopping list, ideas..."
-                            required />
+                <label for="titleInput">Title</label>
+                <input id="titleInput" type="text" placeholder="Meeting notes, shopping list, ideas...">
+
+                <label for="contentInput">Note</label>
+                <textarea id="contentInput" placeholder="Write your note here..."></textarea>
+                <div class="char-count" id="charCount">0 characters</div>
+
+                <div class="field-inline field-inline-selects">
+                    <div class="select-group">
+                        <label for="categoryInput">Category</label>
+                        <select id="categoryInput">
+                            <option value="General">General</option>
+                            <option value="Work">Work</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Study">Study</option>
+                            <option value="Ideas">Ideas</option>
+                            <option value="Tasks">Tasks</option>
+                        </select>
+                    </div>
+                    <div class="select-group">
+                        <label for="colorInput">Color</label>
+                        <select id="colorInput">
+                            <option value="slate">Slate</option>
+                            <option value="ember">Ember</option>
+                            <option value="moss">Moss</option>
+                            <option value="ocean">Ocean</option>
+                            <option value="amber">Amber</option>
+                            <option value="stone">Stone</option>
+                        </select>
                     </div>
                 </div>
-                <div>
-                    <label for="contentInput">Note</label>
-                    <textarea id="contentInput" placeholder="Write your note here..." required></textarea>
-                </div>
             </div>
-            <div class="field-group">
+
+            <div class="field-group field-group-action">
                 <label>&nbsp;</label>
                 <button class="btn-primary" type="submit" id="submitBtn">
-                    <span class="icon">＋</span>
+                    <span class="icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" role="img" aria-label="Save">
+                            <path d="M12 5v14M5 12h14" />
+                        </svg>
+                    </span>
                     <span id="submitText">Add Note</span>
                 </button>
             </div>
         </form>
 
-
         <div class="toolbar">
             <div class="search-wrapper">
-                <span class="search-icon">🔍</span>
-                <input type="text" id="searchInput" placeholder="Search notes by title or text..." />
+                <span class="search-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" role="img" aria-label="Search">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="M20 20l-3.5-3.5"></path>
+                    </svg>
+                </span>
+                <input type="text" id="searchInput" placeholder="Search title or note text...">
+                <button type="button" class="toolbar-btn" id="clearSearchBtn">Clear</button>
+            </div>
+
+            <div class="toolbar-controls">
+                <div class="select-wrap">
+                    <label for="categoryFilter">Filter</label>
+                    <select id="categoryFilter">
+                        <option value="all">All categories</option>
+                        <option value="General">General</option>
+                        <option value="Work">Work</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Study">Study</option>
+                        <option value="Ideas">Ideas</option>
+                        <option value="Tasks">Tasks</option>
+                    </select>
+                </div>
+                <div class="select-wrap">
+                    <label for="sortSelect">Sort</label>
+                    <select id="sortSelect">
+                        <option value="updated_desc">Newest</option>
+                        <option value="updated_asc">Oldest</option>
+                        <option value="title_asc">A to Z</option>
+                    </select>
+                </div>
             </div>
         </div>
 
-
-        <section class="notes-grid" id="notesGrid">
-
-        </section>
+        <section class="notes-grid" id="notesGrid"></section>
     </div>
 
-
-    <div class="toast" id="toast">
-        <span class="icon" id="toastIcon">✅</span>
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <span class="icon" id="toastIcon">i</span>
         <span id="toastMessage">Saved</span>
     </div>
 
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 
 </html>
